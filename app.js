@@ -13,6 +13,26 @@ app.engine('jade', require('jade').__express);
 // Set Static path
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Connect to the socker
+io.sockets.on('connection', function (socket) {
+    // Set username
+    socket.on('set user', function (data, callback) {
+        if (users.indexOf(data) != -1) {
+            callback(false);
+        }
+        else {
+            callback(true);
+            socket.username = data;
+            users.push(socket.username);
+            updateUsers();
+        }
+    });
+
+    function updateUsers() {
+        io.sockets.emit('users', users);
+    }
+});
+
 // Index Route
 app.get('/', function (req, res) {
     res.render('index');

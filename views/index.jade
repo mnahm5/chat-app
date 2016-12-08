@@ -3,7 +3,7 @@ head
     title="Real Time Web Chat"
     link(rel='stylesheet', href='/css/bootstrap.css')
     link(rel='stylesheet' href='/css/style.css')
-    script(src='/js/jquery.js')
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
     script(src='/js/bootstrap.js')
     script(src='js/main.js')
     script(src='/socket.io/socket.io.js')
@@ -24,8 +24,8 @@ body
             .col-md-8
                 #userFormWrap
                     h1 Create Username
-                    form#UserForm
-                        input#username.form-control(type='text', placeholder='Enter username')
+                    form#userForm
+                        input#username.form-control(name='username', type='text', placeholder='Enter username')
                         br
                         button.btn.btn-default(type='submit') Submit
                 #mainWrap
