@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Index Route
 app.get('/', function (req, res) {
-    res.send('Hello World');
+    res.render('index');
 });
 
 server.listen(process.env.PORT || 3000);

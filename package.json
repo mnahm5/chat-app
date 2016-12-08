@@ -2,6 +2,9 @@
   "name": "chat-app",
   "version": "0.0.1",
   "description": "Real time chat app",
+  "scripts": {
+    "start": "node app"
+  },
   "dependencies": {
     "express": "*",
     "socket.io": "*",
