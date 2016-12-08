@@ -27,6 +27,20 @@ $(document).ready(function () {
             }
         });
     });
+
+    chatForm.submit(function (e) {
+        e.preventDefault();
+        socket.emit('send message', message.val());
+        message.val('');
+    });
+
+    socket.on('show message', function (data) {
+        chatWindow.append(
+            '<strong>' + data.user + '</strong>: ' +
+                data.msg + '<br>'
+        );
+    });
+
     // Display Username
     socket.on('users', function (data) {
         console.log(data);
